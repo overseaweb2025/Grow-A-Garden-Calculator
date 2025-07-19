@@ -1,0 +1,23 @@
+{
+"translations": {
+   "zh": {
+     "title": ,
+     "description":,
+     "content": 
+   },
+     "en": {
+     "title":,
+     "description": ,
+     "content": 
+   }
+},
+"coverImage": "/images/placeholder-cover.jpg",
+"tags": [],
+"data":new data,
+"slug": "chinese-style-parenting-a-duet-of-love-and-pressure",
+"userImage": "/placeholder-user.jpg",
+"username": "Care",
+}
+
+slug 逻辑 统一采用英文格式，如果编辑页中 选择的语言版本是英文 则不进行翻译，将英文版本的title 进行校验 一定要符合url规范，
+如果不符合则进行修复，使得它满足url规范

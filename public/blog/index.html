@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的个人简历</title>
+  <style>
+      body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          line-height: 1.6;
+          margin: 0;
+          padding: 20px;
+          background-color: #f4f7f6;
+          color: #333;
+      }
+      .container {
+          max-width: 900px;
+          margin: 20px auto;
+          background: #fff;
+          padding: 30px 40px;
+          border-radius: 8px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+      header {
+          text-align: center;
+          margin-bottom: 40px;
+          padding-bottom: 20px;
+          border-bottom: 2px solid #eee;
+      }
+      header h1 {
+          margin: 0;
+          font-size: 2.8em;
+          color: #2c3e50;
+      }
+      header p {
+          font-size: 1.2em;
+          color: #555;
+          margin-top: 5px;
+      }
+      .contact-info {
+          margin-top: 15px;
+          font-size: 0.95em;
+          color: #666;
+      }
+      .contact-info a {
+          color: #007bff; /* A standard blue for links */
+          text-decoration: none;
+          margin: 0 10px;
+      }
+      .contact-info a:hover {
+          text-decoration: underline;
+      }
+      section {
+          margin-bottom: 30px;
+          padding-bottom: 20px;
+          border-bottom: 1px dashed #eee;
+      }
+      section:last-of-type {
+          border-bottom: none;
+      }
+      h2 {
+          color: #34495e;
+          font-size: 1.8em;
+          margin-bottom: 15px;
+          border-left: 4px solid #007bff; /* Matching link blue */
+          padding-left: 10px;
+      }
+      h3 {
+          color: #4a698c;
+          font-size: 1.3em;
+          margin-top: 20px;
+          margin-bottom: 5px;
+      }
+      .item-details {
+          margin-bottom: 15px;
+      }
+      .item-details p {
+          margin: 0;
+          color: #555;
+      }
+      .item-details ul {
+          list-style-type: disc;
+          margin-left: 25px;
+          padding-left: 0;
+          color: #444;
+      }
+      .item-details li {
+          margin-bottom: 5px;
+      }
+      .skills-list {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+      }
+      .skill-tag {
+          background-color: #e9ecef;
+          color: #495057;
+          padding: 8px 15px;
+          border-radius: 20px;
+          font-size: 0.9em;
+          white-space: nowrap;
+      }
+      footer {
+          text-align: center;
+          margin-top: 40px;
+          font-size: 0.9em;
+          color: #777;
+      }
+  </style>
+</head>
+<body>
+  <div class="container">
+      <header>
+          <h1>你的名字</h1>
+          <p>你的职业/头衔</p>
+          <div class="contact-info">
+              <span>邮箱: <a href="mailto:your.email@example.com">your.email@example.com</a></span> |
+              <span>电话: 123-456-7890</span> |
+              <span>领英: <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></span> |
+              <span>GitHub: <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></span>
+          </div>
+      </header>
+
+      <main>
+          <section id="summary">
+              <h2>个人简介</h2>
+              <p>
+                  在这里写一段关于你自己的简短介绍，突出你的主要技能、经验和职业目标。
+                  例如：一位经验丰富的软件工程师，在开发高性能Web应用程序方面拥有5年经验，
+                  精通JavaScript、React和Node.js。热衷于解决复杂问题并构建用户友好的产品。
+              </p>
+          </section>
+
+          <section id="experience">
+              <h2>工作经历</h2>
+              <div class="item-details">
+                  <h3>公司名称 A - 职位名称</h3>
+                  <p><strong>时间:</strong> 2022年1月 - 至今</p>
+                  <ul>
+                      <li>描述你在该公司担任此职位的主要职责和成就。使用动作动词。</li>
+                      <li>例如：开发并维护了核心产品功能，将用户参与度提高了20%。</li>
+                      <li>例如：领导了一个由3名工程师组成的团队，成功交付了新版移动应用。</li>
+                  </ul>
+              </div>
+              <div class="item-details">
+                  <h3>公司名称 B - 职位名称</h3>
+                  <p><strong>时间:</strong> 2019年6月 - 2021年12月</p>
+                  <ul>
+                      <li>描述你在该公司担任此职位的主要职责和成就。</li>
+                      <li>例如：参与了后端API的开发，支持了超过10万用户的并发请求。</li>
+                      <li>例如：优化了数据库查询，将响应时间缩短了30%。</li>
+                  </ul>
+              </div>
+          </section>
+
+          <section id="education">
+              <h2>教育背景</h2>
+              <div class="item-details">
+                  <h3>大学名称 - 学位名称</h3>
+                  <p><strong>专业:</strong> 你的专业</p>
+                  <p><strong>时间:</strong> 2015年9月 - 2019年6月</p>
+                  <ul>
+                      <li>例如：主修计算机科学，GPA 3.8/4.0。</li>
+                      <li>例如：参与了XXX研究项目，发表了XXX论文。</li>
+                  </ul>
+              </div>
+          </section>
+
+          <section id="skills">
+              <h2>技能</h2>
+              <h3>编程语言:</h3>
+              <div class="skills-list">
+                  <span class="skill-tag">JavaScript</span>
+                  <span class="skill-tag">Python</span>
+                  <span class="skill-tag">Java</span>
+                  <span class="skill-tag">HTML</span>
+                  <span class="skill-tag">CSS</span>
+              </div>
+              <h3>框架与库:</h3>
+              <div class="skills-list">
+                  <span class="skill-tag">React</span>
+                  <span class="skill-tag">Node.js</span>
+                  <span class="skill-tag">Express.js</span>
+                  <span class="skill-tag">Spring Boot</span>
+                  <span class="skill-tag">Django</span>
+              </div>
+              <h3>数据库:</h3>
+              <div class="skills-list">
+                  <span class="skill-tag">MySQL</span>
+                  <span class="skill-tag">PostgreSQL</span>
+                  <span class="skill-tag">MongoDB</span>
+              </div>
+              <h3>工具与平台:</h3>
+              <div class="skills-list">
+                  <span class="skill-tag">Git</span>
+                  <span class="skill-tag">Docker</span>
+                  <span class="skill-tag">AWS</span>
+                  <span class="skill-tag">VS Code</span>
+              </div>
+          </section>
+
+          <section id="projects">
+              <h2>项目经验</h2>
+              <div class="item-details">
+                  <h3>项目名称 A</h3>
+                  <p><strong>技术栈:</strong> React, Node.js, MongoDB</p>
+                  <ul>
+                      <li>简要描述项目目标和你的角色。</li>
+                      <li>例如：开发了一个全栈电商平台，实现了用户认证、商品管理和支付功能。</li>
+                      <li>例如：负责前端界面的设计与实现，提升了用户体验。</li>
+                  </ul>
+              </div>
+              <div class="item-details">
+                  <h3>项目名称 B</h3>
+                  <p><strong>技术栈:</strong> Python, Django, PostgreSQL</p>
+                  <ul>
+                      <li>简要描述项目目标和你的角色。</li>
+                      <li>例如：构建了一个数据分析工具，用于可视化销售数据。</li>
+                      <li>例如：设计并实现了数据库模型和RESTful API。</li>
+                  </ul>
+              </div>
+          </section>
+      </main>
+
+      <footer>
+          <p>&copy; 2025 你的名字. 保留所有权利。</p>
+      </footer>
+  </div>
+</body>
+</html>

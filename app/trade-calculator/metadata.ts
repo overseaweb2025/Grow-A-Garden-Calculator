@@ -1,0 +1,1 @@
+export { metadata } from '../[lang]/trade-calculator/metadata'; 

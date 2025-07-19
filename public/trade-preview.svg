@@ -1,0 +1,33 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="url(#gradient)"/>
+  <defs>
+    <linearGradient id="gradient" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FDF2F8"/>
+      <stop offset="0.5" stop-color="#FCE7F3"/>
+      <stop offset="1" stop-color="#FDF2F8"/>
+    </linearGradient>
+  </defs>
+  
+  <g filter="url(#shadow)">
+    <text x="600" y="250" fill="url(#textGradient)" text-anchor="middle" font-family="system-ui" font-size="64" font-weight="bold">
+      智能交易计算中心
+    </text>
+    <text x="600" y="350" fill="#DB2777" text-anchor="middle" font-family="system-ui" font-size="36">
+      专业的游戏物品交易分析工具
+    </text>
+  </g>
+  
+  <defs>
+    <linearGradient id="textGradient" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EC4899"/>
+      <stop offset="1" stop-color="#DB2777"/>
+    </linearGradient>
+    <filter id="shadow" x="0" y="0" width="1200" height="630" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="2" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  
+  <text x="600" y="450" fill="#BE185D" text-anchor="middle" font-family="system-ui" font-size="24">
+    🔄 批量估价 • 📊 市场分析 • 💡 智能建议
+  </text>
+</svg> 

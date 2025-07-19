@@ -1,0 +1,17 @@
+# 忽略 node_modules 和 .next 目录
+node_modules
+.next
+
+# 忽略 Git 相关文件
+.git
+
+# 忽略日志和临时文件
+*.log
+
+
+# 忽略文档和其他非必要文件
+README.md
+GITHUB_SETUP.md
+
+# 忽略 Docker 相关配置文件夹（如果你不需要在镜像中使用）
+.docker

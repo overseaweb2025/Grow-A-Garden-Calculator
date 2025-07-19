@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog. - A static blog example</title>
+  <meta name="description" content="This is a static blog example converted from a Next.js project.">
+  <style>
+      /* Basic CSS to mimic some Tailwind defaults and global styles */
+      body {
+          font-family: Arial, Helvetica, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #ffffff; /* Light background */
+          color: #0f0f0f; /* Dark foreground */
+          line-height: 1.6;
+      }
+
+      .dark body {
+          background-color: #0a0a0a; /* Dark background */
+          color: #f5f5f5; /* Light foreground */
+      }
+
+      .container {
+          max-width: 1280px; /* Equivalent to max-w-7xl */
+          margin-left: auto;
+          margin-right: auto;
+          padding-left: 1.25rem; /* px-5 */
+          padding-right: 1.25rem; /* px-5 */
+      }
+
+      .flex { display: flex; }
+      .flex-col { flex-direction: column; }
+      .md\:flex-row { flex-direction: column; }
+      @media (min-width: 768px) {
+          .md\:flex-row { flex-direction: row; }
+      }
+      .items-center { align-items: center; }
+      .justify-center { justify-content: center; }
+      .justify-between { justify-content: space-between; }
+      .text-center { text-align: center; }
+      .md\:text-left { text-align: center; }
+      @media (min-width: 768px) {
+          .md\:text-left { text-align: left; }
+      }
+      .font-bold { font-weight: 700; }
+      .text-6xl { font-size: 3.75rem; line-height: 1; }
+      .md\:text-8xl { font-size: 6rem; line-height: 1; }
+      .tracking-tighter { letter-spacing: -0.05em; }
+      .leading-tight { line-height: 1.25; }
+      .md\:pr-8 { padding-right: 2rem; }
+      .mt-16 { margin-top: 4rem; }
+      .mb-16 { margin-bottom: 4rem; }
+      .md\:mb-12 { margin-bottom: 3rem; }
+      .mt-5 { margin-top: 1.25rem; }
+      .md\:pl-8 { padding-left: 2rem; }
+      .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+      .underline { text-decoration-line: underline; }
+      .hover\:text-orange-500:hover { color: #f97316; }
+      .duration-200 { transition-duration: 0.2s; }
+      .transition-colors { transition-property: color, background-color, border-color, text-decoration-color, fill, stroke; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; }
+
+      /* Hero Post */
+      .mb-8 { margin-bottom: 2rem; }
+      .md\:mb-16 { margin-bottom: 4rem; }
+      .max-h-\[50vh\] { max-height: 50vh; }
+      .min-h-\[300px\] { min-height: 300px; }
+      .shadow-sm { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); }
+      .rounded-lg { border-radius: 0.5rem; }
+      .object-cover { object-fit: cover; }
+      .hover\:shadow-md:hover { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+      .md\:grid { display: grid; }
+      .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .md\:gap-x-16 { column-gap: 4rem; }
+      .lg\:gap-x-8 { column-gap: 2rem; }
+      .mb-20 { margin-bottom: 5rem; }
+      .md\:mb-28 { margin-bottom: 7rem; }
+      .text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+      .lg\:text-6xl { font-size: 3.75rem; line-height: 1; }
+      .leading-tight { line-height: 1.25; }
+      .mb-4 { margin-bottom: 1rem; }
+      .text-base { font-size: 1rem; line-height: 1.5rem; }
+      .text-black\/60 { color: rgba(0, 0, 0, 0.6); }
+      .dark\:text-white\/60 { color: rgba(255, 255, 255, 0.6); }
+      .flex { display: flex; }
+      .items-center { align-items: center; }
+      .mr-4 { margin-right: 1rem; }
+      .w-12 { width: 3rem; }
+      .h-12 { height: 3rem; }
+      .rounded-full { border-radius: 9999px; }
+      .text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+
+      /* More Stories */
+      .text-6xl { font-size: 3.75rem; line-height: 1; }
+      .md\:text-7xl { font-size: 4.5rem; line-height: 1; }
+      .gap-y-20 { row-gap: 5rem; }
+      .md\:gap-y-32 { row-gap: 8rem; }
+      .mb-32 { margin-bottom: 8rem; }
+      .aspect-video { aspect-ratio: 16 / 9; }
+      .text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+      .leading-snug { line-height: 1.375; }
+
+      /* Footer */
+      .border-t { border-top-width: 1px; border-color: #e5e7eb; }
+      .dark .border-t { border-color: #262626; }
+      .py-28 { padding-top: 7rem; padding-bottom: 7rem; }
+      .lg\:flex-row { flex-direction: column; }
+      @media (min-width: 1024px) {
+          .lg\:flex-row { flex-direction: row; }
+      }
+      .lg\:w-1\/2 { width: 50%; }
+      .lg\:pr-4 { padding-right: 1rem; }
+      .lg\:pl-4 { padding-left: 1rem; }
+      .mb-10 { margin-bottom: 2.5rem; }
+      .lg\:mb-0 { margin-bottom: 0; }
+      .mx-3 { margin-left: 0.75rem; margin-right: 0.75rem; }
+      .bg-black { background-color: #000000; }
+      .dark\:bg-white { background-color: #ffffff; }
+      .hover\:bg-white:hover { background-color: #ffffff; }
+      .dark\:hover\:bg-black:hover { background-color: #000000; }
+      .hover\:text-black:hover { color: #000000; }
+      .dark\:hover\:text-white:hover { color: #ffffff; }
+      .border { border-width: 1px; }
+      .border-black { border-color: #000000; }
+      .dark\:border-white { border-color: #ffffff; }
+      .text-white { color: #ffffff; }
+      .dark\:text-black { color: #000000; }
+      .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+      .px-12 { padding-left: 3rem; padding-right: 3rem; }
+      .lg\:px-8 { padding-left: 2rem; padding-right: 2rem; }
+      .rounded-lg { border-radius: 0.5rem; }
+      .duration-200 { transition-duration: 0.2s; }
+      .transition-colors { transition-property: color, background-color, border-color, text-decoration-color, fill, stroke; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; }
+      .hover\:underline:hover { text-decoration-line: underline; }
+  </style>
+</head>
+<body>
+  <main class="min-h-screen">
+      <section class="container mx-auto px-5">
+          <!-- Intro Section -->
+          <section class="flex-col md:flex-row flex items-center md:justify-between mt-16 mb-16 md:mb-12">
+              <h1 class="text-6xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8">
+                  Blog.
+              </h1>
+              <h2 class="text-center md:text-left text-lg mt-5 md:pl-8">
+                  A blog example using
+                  <a href="https://v0.dev/" target="_blank" rel="noopener noreferrer" class="underline hover:text-orange-500 duration-200 transition-colors">
+                      v0
+                  </a>
+                  and
+                  <a href="https://basehub.com" target="_blank" rel="noopener noreferrer" class="underline hover:text-orange-500 duration-200 transition-colors">
+                      BaseHub
+                  </a>
+                  .
+              </h2>
+          </section>
+
+          <!-- Hero Post Section -->
+          <section>
+              <div class="mb-8 md:mb-16">
+                  <a href="/posts/example-hero-post" aria-label="Cover Image for Example Hero Post">
+                      <img
+                          alt="Cover Image for Example Hero Post"
+                          width="1500"
+                          height="1000"
+                          class="shadow-sm rounded-lg object-cover max-h-[50vh] min-h-[300px] hover:shadow-md transition-shadow duration-200"
+                          src="/placeholder.svg?height=1000&width=1500"
+                      />
+                  </a>
+              </div>
+              <div class="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
+                  <div>
+                      <h3 class="mb-4 text-4xl lg:text-6xl leading-tight">
+                          <a href="/posts/example-hero-post" class="hover:underline">
+                              Example Hero Post Title
+                          </a>
+                      </h3>
+                      <div class="mb-4 md:mb-0 text-base text-black/60">
+                          <time datetime="2023-10-26">October 26, 2023</time>
+                      </div>
+                  </div>
+                  <div>
+                      <p class="text-lg leading-relaxed mb-4">This is a short excerpt for the hero post, giving a brief overview of its content. It's designed to entice readers to click and learn more.</p>
+                      <div class="flex items-center">
+                          <div class="mr-4 w-12 h-12">
+                              <img alt="Author Name" class="object-cover h-full rounded-full" height="96" width="96" src="/placeholder.svg?height=96&width=96" />
+                          </div>
+                          <div class="text-xl font-bold">Author Name</div>
+                      </div>
+                  </div>
+              </div>
+          </section>
+
+          <!-- More Stories Section -->
+          <section>
+              <h2 class="mb-8 text-6xl md:text-7xl font-bold tracking-tighter leading-tight">
+                  More Stories
+              </h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 md:gap-x-16 lg:gap-x-32 gap-y-20 md:gap-y-32 mb-32">
+                  <!-- Post Preview 1 -->
+                  <div>
+                      <div class="mb-5">
+                          <a href="/posts/example-post-1" aria-label="Cover Image for Example Post 1">
+                              <img
+                                  alt="Cover Image for Example Post 1"
+                                  width="700"
+                                  height="700"
+                                  class="shadow-sm rounded-lg object-cover aspect-video"
+                                  src="/placeholder.svg?height=700&width=700"
+                              />
+                          </a>
+                      </div>
+                      <h3 class="text-3xl mb-3 leading-snug">
+                          <a href="/posts/example-post-1" class="hover:underline">
+                              First Post Title
+                          </a>
+                      </h3>
+                      <div class="text-base text-black/60 mb-4">
+                          <time datetime="2023-10-25">October 25, 2023</time>
+                      </div>
+                      <p class="text-lg leading-relaxed mb-4">This is an excerpt for the first regular post. It provides a glimpse into the article's content.</p>
+                      <div class="flex items-center">
+                          <div class="mr-4 w-12 h-12">
+                              <img alt="Another Author" class="object-cover h-full rounded-full" height="96" width="96" src="/placeholder.svg?height=96&width=96" />
+                          </div>
+                          <div class="text-xl font-bold">Another Author</div>
+                      </div>
+                  </div>
+
+                  <!-- Post Preview 2 -->
+                  <div>
+                      <div class="mb-5">
+                          <a href="/posts/example-post-2" aria-label="Cover Image for Example Post 2">
+                              <img
+                                  alt="Cover Image for Example Post 2"
+                                  width="700"
+                                  height="700"
+                                  class="shadow-sm rounded-lg object-cover aspect-video"
+                                  src="/placeholder.svg?height=700&width=700"
+                              />
+                          </a>
+                      </div>
+                      <h3 class="text-3xl mb-3 leading-snug">
+                          <a href="/posts/example-post-2" class="hover:underline">
+                              Second Post Title
+                          </a>
+                      </h3>
+                      <div class="text-base text-black/60 mb-4">
+                          <time datetime="2023-10-24">October 24, 2023</time>
+                      </div>
+                      <p class="text-lg leading-relaxed mb-4">A brief summary of the second post, designed to capture reader interest and encourage clicks.</p>
+                      <div class="flex items-center">
+                          <div class="mr-4 w-12 h-12">
+                              <img alt="Third Author" class="object-cover h-full rounded-full" height="96" width="96" src="/placeholder.svg?height=96&width=96" />
+                          </div>
+                          <div class="text-xl font-bold">Third Author</div>
+                      </div>
+                  </div>
+              </div>
+          </section>
+
+          <!-- Newsletter Section (simplified to static) -->
+          <section class="border-t bg-neutral-50">
+              <div class="container mx-auto px-5">
+                  <div class="py-16 text-center">
+                      <h2 class="text-3xl lg:text-4xl font-bold tracking-tighter leading-tight mb-4">
+                          Stay Updated
+                      </h2>
+                      <p class="text-lg text-neutral-600 mb-8 max-w-2xl mx-auto">
+                          Subscribe to our newsletter to get the latest posts delivered
+                          straight to your inbox.
+                      </p>
+                      <form action="#" method="POST" class="max-w-md mx-auto flex gap-2">
+                          <input type="email" name="email" placeholder="Enter your email" required class="flex-1 h-10 px-3 py-2 text-base rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                          <button type="submit" class="px-6 py-2 text-sm font-medium text-white bg-black rounded-md hover:bg-gray-800 transition-colors duration-200">
+                              Subscribe
+                          </button>
+                      </form>
+                  </div>
+              </div>
+          </section>
+      </section>
+
+      <!-- Footer Section -->
+      <footer class="border-t">
+          <div class="container mx-auto px-5">
+              <div class="py-28 flex flex-col lg:flex-row items-center">
+                  <h3 class="text-4xl lg:text-5xl font-bold tracking-tighter leading-tight text-center lg:text-left mb-10 lg:mb-0 lg:pr-4 lg:w-1/2">
+                      Built with Next.js.
+                  </h3>
+                  <div class="flex flex-col lg:flex-row justify-center items-center lg:pl-4 lg:w-1/2">
+                      <a
+                          href="https://nextjs.org/docs"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="mx-3 rounded-lg bg-black hover:bg-white hover:text-black border border-black text-white font-bold py-3 px-12 lg:px-8 duration-200 transition-colors mb-6 lg:mb-0"
+                      >
+                          Read Documentation
+                      </a>
+                      <a
+                          href="https://github.com/julianbenegas/v0-basehub-blog"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="mx-3 font-bold hover:underline"
+                      >
+                          View on GitHub
+                      </a>
+                  </div>
+              </div>
+          </div>
+      </footer>
+  </main>
+</body>
+</html>
